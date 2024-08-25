@@ -6,13 +6,24 @@
 using namespace std;
 
 int strcmp_case_insensitive(string str1, string str2) {
-	for (int i = 0; i < str1.length(); i++) {
+	//instantiating the strings
+	string firstString = "";
+	string secondString = "";
 
+	//defing the strings, removing the spaces, and lowercasing everything for comparison
+	for (char& c : str1) {
+		if (c != 32) {
+			firstString += tolower(c);
+		}
 	}
-	
-	
-	
-	return str1.compare(str2);
+	for (char& c : str2) {
+		if (c != 32) {
+			secondString += tolower(c);
+		}
+	}
+
+	//compare and return
+	return firstString.compare(secondString);
 }
 
 
@@ -26,7 +37,7 @@ int main()
 	cout << "first string:\n";
 	getline(cin, firstString);
 	cout << "\n";
-	
+
 	// getting the user's input on the second string
 	cout << "second string:\n";
 	getline(cin, secondString);
@@ -44,7 +55,7 @@ int main()
 		cout << firstString + " == " + secondString + "\n";
 	}
 	else if (result < 0) {
-		cout << firstString + " > " + secondString + "\n";
+		cout << firstString + " < " + secondString + "\n";
 	}
 
 }
